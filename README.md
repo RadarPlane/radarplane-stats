@@ -15,7 +15,7 @@ sudo bash /tmp/axfeed.sh
 ### STEP 2: STATS
 
 ```
-wget -O /tmp/axstats.sh https://raw.githubusercontent.com/adsbxchange/adsbexchange-stats/master/stats.sh
+wget -O /tmp/axstats.sh https://raw.githubusercontent.com/adsbexchange/adsbexchange-stats/master/stats.sh
 sudo bash /tmp/axstats.sh
 ```
 
