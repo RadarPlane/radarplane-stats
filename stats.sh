@@ -6,6 +6,6 @@ if ! command -v git; then
 fi
 rm -rf "$TMP"
 set -e
-git clone https://github.com/adsbexchange/radarplane-stats.git "$TMP"
+git clone https://github.com/RadarPlane/radarplane-stats.git "$TMP"
 cd "$TMP"
 bash install.sh
