@@ -1,57 +1,38 @@
-# adsbexchange-stats
-ADSBexchange.com Statistics Beta
+# radarplane-stats
+RadarPlane.com Statistics Beta
 
-You must be running ADSBexchange feeder.
+You must be running RadarPlane feeder.
 
-Stats only.  Be sure to install ADSBexchange.com feeder package first.
+Stats only.  Be sure to install RadarPlane.com feeder package first.
 
 ### STEP 1: FEEDER PACKAGE
 
 ```
-curl -L -o /tmp/axfeed.sh https://adsbexchange.com/feed.sh
-sudo bash /tmp/axfeed.sh
+curl -L -o /tmp/rdpfeed.sh https://radarplane.com/feed.sh
+sudo bash /tmp/rdpfeed.sh
 ```
 
 ### STEP 2: STATS
 
 ```
-wget -O /tmp/axstats.sh https://raw.githubusercontent.com/adsbexchange/adsbexchange-stats/master/stats.sh
-sudo bash /tmp/axstats.sh
+wget -O /tmp/rpstats.sh https://raw.githubusercontent.com/RadarPlane/radarplane-stats/master/stats.sh
+sudo bash /tmp/rpstats.sh
 ```
-
-### Show stats URL on console
-```
-adsbexchange-showurl
-```
-
 
 ### Systemd Status
 
 ```
-sudo systemctl status adsbexchange-stats
+sudo systemctl status radarplane-stats
 ```
 
 ### Restart
 
 ```
-sudo systemctl restart adsbexchange-stats
+sudo systemctl restart radarplane-stats
 ```
-
-### Figure the URL out yourself
-
-Replace UUID with the adsbx stats generated uuid:
-
-https://www.adsbexchange.com/api/feeders/?feed=UUID
-
---adsbx-git-discord
 
 ### Uninstall
 
 ```
-sudo bash /usr/local/share/adsbexchange-stats/uninstall.sh
-```
-
-For early versions just disable the service:
-```
-sudo systemctl disable --now adsbexchange-stats
+sudo bash /usr/local/share/radarplane-stats/uninstall.sh
 ```
