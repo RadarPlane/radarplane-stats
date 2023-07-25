@@ -52,7 +52,7 @@ fi
 
 JSON_DIR=""
 
-TEMP_DIR="/run/radarplane-stats/"
+TEMP_DIR="/run/radarplane-stats"
 TMPFILE="${TEMP_DIR}/tmp.json"
 NEWFILE="${TEMP_DIR}/new.json"
 
