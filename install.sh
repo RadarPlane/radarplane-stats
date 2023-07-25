@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IPATH=/usr/local/share/adsbexchange-stats/
+IPATH=/usr/local/share/radarplane-stats/
 set -e
 
 mkdir -p $IPATH
@@ -55,13 +55,13 @@ chmod +x $IPATH/json-status
 chmod +x $IPATH/create-uuid.sh
 cp uninstall.sh $IPATH
 
-if [ -f /boot/adsb-config.txt ] && ! [ -d /run/adsbexchange-feed ] && ! [ -f /etc/default/adsbexchange-stats ]
+if [ -f /boot/adsb-config.txt ] && ! [ -d /run/radarplane-feed ] && ! [ -f /etc/default/radarplane-stats ]
 then
-    echo "USE_OLD_PATH=1" > /etc/default/adsbexchange-stats
+    echo "USE_OLD_PATH=1" > /etc/default/radarplane-stats
 fi
 
 # copy the service file
-cp adsbexchange-stats.service /etc/systemd/system/adsbexchange-stats.service
+cp radarplane-stats.service /etc/systemd/system/radarplane-stats.service
 
 # add adsbexchange user to video group for vcgencmd get_throttled if the system has that command and it works:
 if vcgencmd get_throttled &>/dev/null; then
@@ -69,7 +69,7 @@ if vcgencmd get_throttled &>/dev/null; then
 fi
 
 # enable service
-systemctl enable adsbexchange-stats.service
+systemctl enable radarplane-stats.service
 
 
 # exit success for chroot
@@ -80,13 +80,13 @@ fi
 bash $IPATH/create-uuid.sh
 
 # start service
-systemctl restart adsbexchange-stats.service
+systemctl restart radarplane-stats.service
 
 # output uuid
 echo "#####################################"
-UUID_FILE="/boot/adsbx-uuid"
+UUID_FILE="/boot/radarplane-uuid"
 if ! [[ -f "$UUID_FILE" ]]; then
-    UUID_FILE="/usr/local/share/adsbexchange/adsbx-uuid"
+    UUID_FILE="/usr/local/share/adsbexchange/radarplane-uuid"
 fi
 cat "$UUID_FILE"
 echo "#####################################"
